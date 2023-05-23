@@ -1,12 +1,12 @@
 # hacksingapore2023
 
-# Team Name: Rabin
+## Team Name: Rabin
 
-# Team Member
+## Team Member
   Isak Rabin (isak_r@yahoo.com)
   Yusak Rabin (yusakrabin@gmail.com)
 
-# Theme: Digital Empowerment
+## Theme: Digital Empowerment
 
 # Project Overview
 
