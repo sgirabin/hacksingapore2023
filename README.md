@@ -64,4 +64,5 @@ https://digiemp.w3spaces.com/
 # Video Pitch
 https://drive.google.com/file/d/1x8p129eqscHgmPnqRNBPSbkBtoP-w6Sm/view?usp=share_link
 
-
+# Presentation Deck
+https://docs.google.com/presentation/d/1zGtf9p3dEw1E8RRuJQNpkOrXeVq0X5dA/edit?usp=share_link&ouid=117486961251085637858&rtpof=true&sd=true
