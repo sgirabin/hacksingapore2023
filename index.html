@@ -26,6 +26,114 @@
     .w3-bar .w3-button {
       padding: 16px;
     }
+    * {box-sizing: border-box;}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* Add a background color when the inputs get focus */
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #474e5d;
+  padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+ 
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+}
     </style>
   </head>
 <body>
@@ -37,8 +145,8 @@
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
       <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
-      <a href="#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i> TEAM</a>
-      <a href="#signup" class="w3-bar-item w3-button"><i class="fa fa-th"></i>SIGN UP</a>
+      <a href="#mentors" class="w3-bar-item w3-button"><i class="fa fa-user"></i>MENTORS</a>
+      <a href="#signup" class="w3-bar-item w3-button" onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-th"></i>SIGN UP</a>
       <a href="#signin" class="w3-bar-item w3-button"><i class="fa fa-desktop"></i> SIGN IN</a>
       <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
     </div>
@@ -54,7 +162,7 @@
 <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
   <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
-  <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">TEAM</a>
+  <a href="#mentors" onclick="w3_close()" class="w3-bar-item w3-button">TEAM</a>
   <a href="#signup" onclick="w3_close()" class="w3-bar-item w3-button">SIGN UP</a>
   <a href="#signin" onclick="w3_close()" class="w3-bar-item w3-button">SIGN IN</a>
   <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
@@ -106,7 +214,7 @@
   </div>
 </div>
 
-<!-- Promo Section - "We know design" -->
+<!-- Promo Section -->
 <div class="w3-container w3-light-grey" style="padding:128px 16px">
   <div class="w3-row-padding">
     <div class="w3-col m6">
@@ -125,8 +233,8 @@
   </div>
 </div>
 
-<!-- Team Section -->
-<div class="w3-container" style="padding:128px 16px" id="team">
+<!-- Mentors Section -->
+<div class="w3-container" style="padding:128px 16px" id="mentors">
   <h3 class="w3-center">Meet Our Mentors</h3>
   <p class="w3-center w3-large">The one that will help you to grow</p>
   <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
@@ -198,16 +306,8 @@
 </div>
 
 
-<!-- Modal for full size images on click-->
-<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
-  <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image">×</span>
-  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-    <img id="img01" class="w3-image">
-    <p id="caption" class="w3-opacity w3-large"></p>
-  </div>
-</div>
 
-<!-- Skills Section -->
+<!-- Resources Section -->
 <div class="w3-container w3-light-grey w3-padding-64">
   <div class="w3-row-padding">
     <div class="w3-col m6">
@@ -233,7 +333,48 @@
   </div>
 </div>
 
+<!-- Sign Up Section -->
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+  <form class="modal-content" action="/action_page.php">
+    <div class="container">
+      <h1>Sign Up</h1>
+      <p>Please fill in this form to create an account.</p>
+      <hr>
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" required>
 
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+
+      <label for="psw-repeat"><b>Repeat Password</b></label>
+      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+      
+      <label>Member Type</label>
+      <labeL>
+        <input type="radio" id="mentor" name="member" style="margin-bottom:15px">
+        <label for="mentor">Mentor</label>
+        <input type="radio" id="mentee" name="member" style="margin-bottom:15px">
+        <label for="mentee">Mentee</label>
+      </label>
+
+      <p></p>
+
+      <label>
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+      </label>
+
+      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <a href="https://digiemp.w3spaces.com/mentee.html">
+          <button type="submit"  class="signupbtn">Sign Up</button>
+        </a>
+      </div>
+    </div>
+  </form>
+</div>
 
 <!-- Contact Section -->
 <div class="w3-container w3-light-grey" style="padding:128px 16px" id="contact">
@@ -255,10 +396,6 @@
         </button>
       </p>
     </form>
-    <!-- Image of location/map -->
-    <!--
-    <img src="https://www.w3schools.com/w3images/map.jpg" class="w3-image w3-greyscale" style="width:100%;margin-top:48px">
-    -->
   </div>
 </div>
 
@@ -304,5 +441,5 @@ function w3_close() {
 }
 </script>
 
-<script src="/ad7dd40c6f56af84ec2dcccf44cec0e9bd58e67992c46f984f78b79bc95eab89/ns.js"></script><script src="/02ebcdea8290511155e2c6c2d3e0216f60de3ee8f34ebfd05d22d56856a2dc7a/ns.js"></script><script src="/02ebcdea8290511155e2c6c2d3e0216f60de3ee8f34ebfd05d22d56856a2dc7a/ns.js"></script></body>
+<script src="/ad7dd40c6f56af84ec2dcccf44cec0e9bd58e67992c46f984f78b79bc95eab89/ns.js"></script><script src="/02ebcdea8290511155e2c6c2d3e0216f60de3ee8f34ebfd05d22d56856a2dc7a/ns.js"></script><script src="/02ebcdea8290511155e2c6c2d3e0216f60de3ee8f34ebfd05d22d56856a2dc7a/ns.js"></script><script src="/02ebcdea8290511155e2c6c2d3e0216f60de3ee8f34ebfd05d22d56856a2dc7a/ns.js"></script><script src="/02ebcdea8290511155e2c6c2d3e0216f60de3ee8f34ebfd05d22d56856a2dc7a/ns.js"></script><script src="/02ebcdea8290511155e2c6c2d3e0216f60de3ee8f34ebfd05d22d56856a2dc7a/ns.js"></script><script src="/02ebcdea8290511155e2c6c2d3e0216f60de3ee8f34ebfd05d22d56856a2dc7a/ns.js"></script></body>
 </html>
